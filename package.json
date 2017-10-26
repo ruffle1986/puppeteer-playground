@@ -1,0 +1,20 @@
+{
+  "name": "puppeteer-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest test.js",
+    "test:watch": "npm t -- --watch",
+    "t:w": "npm run test:watch",
+    "test:init-server": "PORT=8082 http-server src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^0.10.0",
+    "jest": "^21.2.1",
+    "puppeteer": "^0.12.0"
+  }
+}

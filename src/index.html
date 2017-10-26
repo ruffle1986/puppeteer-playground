@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="root"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.0.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.0.0/umd/react-dom.production.min.js"></script>
+  <script>
+    const $ = React.createElement;
+
+    class MyComponent extends React.Component {
+      constructor(...args) {
+        super(...args);
+        this.state = {
+          message: 'None'
+        };
+      }
+      render() {
+        return $('div', null, [
+          $('div', { className: 'my-message' }, this.state.message),
+          $('br'), $('br'),
+          $('input', {
+            type: 'text',
+            placeholder: 'Focus me baby!',
+            onBlur: () => {
+              this.setState({
+                message: 'None'
+              });
+            },
+            onFocus: () => {
+              this.setState({
+                message: 'Focused!'
+              });
+            },
+          }),
+          $('br'), $('br'),
+          $('button', {
+            className: 'my-button',
+            onClick: () => {
+              this.setState({
+                message: 'Peace!'
+              });
+            }
+          }, 'Click me')
+        ]);
+      }
+    }
+
+    ReactDOM.render(
+      $(MyComponent, null, 'Hello'),
+      document.getElementById('root')
+    );
+  </script>
+</body>
+</html>
